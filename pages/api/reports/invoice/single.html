@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Invoice Single</title>
+	</head>
+
+	<body>
+		<div class="invoice-box">
+			<table cellpadding="0" cellspacing="0" style="margin-bottom: 24px">
+				<tr class="top">
+					<td colspan="4">
+						<table>
+							<tr>
+								<td class="title">
+									<img src="{{logoPath}}" style="width: 100%; max-width: 160px" />
+								</td>
+
+								<td></td>
+								<td></td>
+
+								<td>
+									{{invoiceId}}<br />
+									{{invoiceDate}}
+								</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+
+				<tr class="information">
+					<td colspan="6">
+						<table>
+							<tr>
+								<td>
+									<strong class="bold">Cliente</strong><br />
+									{{associateNumber}} - {{associateName}}<br />
+								</td>
+
+								<td class="center">
+									<strong class="bold">Iniciada por</strong><br />
+									{{sellerName}}<br />
+								</td>
+
+								<!--td class="center">
+									<strong class="bold">Desconto Final</strong><br />
+									{{paymentDiscount}}<br />
+								</td-->
+
+								<td class="right">
+									<strong class="bold">Forma de Pagamento</strong><br />
+									{{paymentMethod}}<br />
+								</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+
+				<tr class="heading">
+					<td>Item</td>
+					<td class="center">Quantidade</td>
+					<td class="center">Vendedor</td>
+					<td class="center">Desconto Falhas</td>
+					<td class="center">Falhas</td>
+					<td class="right">Valor</td>
+				</tr>
+
+				{{items}}
+			</table>
+
+			{{observation}}
+
+			<div class="invoice-values">
+				<div class="invoice-discount">Descontos: {{discount}}</div>
+				<div class="invoice-subtotal">Subtotal: {{subtotal}}</div>
+				<div class="invoice-total">Total: {{total}}</div>
+			</div>
+
+			<div class="invoice-id">Código da Comanda</div>
+			<div class="invoice-id">
+				<img src="{{qrCode}}" style="width: 100%; max-width: 80px" />
+			</div>
+			<div class="invoice-id-value">{{invoiceDbId}}</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,149 @@
+html {
+  font-size: 16px;
+  font-family: "Open Sans" !important;
+  font-weight: 400;
+}
+
+span {
+  display: block;
+  width: max-content;
+}
+
+.report-box {
+  max-width: 750px;
+  margin: auto;
+  padding: 0;
+  font-size: 16px;
+  line-height: 20px;
+  font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+  color: #000;
+  display: grid;
+  gap: 8px;
+}
+
+.report-title {
+  text-align: center;
+  font-size: 18px;
+  font-weight: 600;
+  padding: 0;
+}
+
+.report-text {
+  font-size: 16px;
+}
+
+.report-text-bold {
+  padding: 18px 24px;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.report-text-justify {
+  text-align: justify;
+  padding: 0 24px;
+}
+
+.report-text-center {
+  text-align: center;
+  padding: 18px 24px;
+}
+
+.report-text-center h4 {
+  margin: 0;
+}
+
+.declaration-text {
+  top: 50%;
+  padding-top: 18px;
+}
+
+
+.signature::before {
+  content: "";
+  display: block;
+  background-color: black;
+  display: block;
+  width: 40ch;
+  height: 1px;
+  margin-bottom: 4px;
+}
+
+.signature {
+  display: grid;
+  justify-items: center;
+  margin-top: 60px;
+}
+
+.local {
+  margin-top: 40px;
+  text-align: right;
+}
+
+.grid {
+  display: grid;
+  border: solid 1px;
+}
+
+.radio-2 {
+  display: grid;
+  grid-template-columns: auto 1fr 1fr;
+  gap:8px
+}
+.radio-2alt {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap:8px
+}
+
+.radio-3 { display: grid;
+  grid-template-columns:auto auto auto 1fr ;
+  gap: 8px;
+}
+
+.col-2 {
+  display: grid;
+  grid-template-columns:1fr 1fr
+}
+
+.col-2alt {
+  display: grid;
+  grid-template-columns:auto 1fr;
+  gap: 40px  
+}
+
+.col-3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr
+}
+
+.div-title {
+  font-weight: 600;
+}
+
+.div-sign {display: grid;
+  margin-top: 60px;
+  margin-right:60px ; justify-self: right;
+  text-align: center;
+  width: max-content;
+}
+
+
+.div-sign span::before {
+  content: "";
+  display: block;
+  background-color: black;
+  display: block;
+  width: 30ch;
+  height: 1px;
+  margin-bottom: 4px;
+}
+
+.grid div{padding:4px}
+
+.grid div+div{border-top: solid 1px;}
+
+.no-border {border: none !important;}
+
+.div-text p {
+  margin: 4px 0;
+}

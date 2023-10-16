@@ -1,0 +1,165 @@
+html {
+  font-size: 12px;
+  font-family: 'Open Sans' !important;
+  font-weight: 400;
+}
+
+.bold {
+  font-weight: 600;
+}
+
+a {
+  color: #282828;
+}
+
+.report-box {
+  max-width: 800px;
+  margin: auto;
+  padding: 16px 0 0;
+  border: 1px solid #eee;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+  font-size: 14px;
+  line-height: 24px;
+  font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
+  color: #555;
+}
+
+.report-header {
+  display: flex;
+}
+
+.report-header__logo {
+  padding: 24px;
+  width: 20%;
+  text-align: center;
+}
+
+.report-header__data {				
+  text-align: center;
+  width: 80%;
+}
+
+.report-header__data p {
+  font-size: 11px;
+  line-height: 18px;
+  margin: 0;
+  padding: 0;
+}
+
+.report-header__data h1 {
+  font-size: 24px;
+}
+
+.report-title {
+  text-decoration: underline;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 500;
+  padding: 32px 0 0;
+}
+
+.report-text {
+  font-size: 16px;
+}
+
+.report-text-bold {
+  padding: 18px 24px;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.report-text-justify {
+  text-align: justify;
+  padding: 18px 24px;
+}
+
+.report-text-center {
+  text-align: center;
+  padding: 18px 24px;
+}
+
+.report-text-center h4 {
+  margin: 0;
+}
+
+.declaration-text {
+  padding-top: 18px;
+}
+
+.report-validation {
+  display: flex;
+}
+
+.report-validation div {
+  width: 50%;
+  padding: 24px;
+  text-align: center;
+}
+
+.report-validation__qr-code {
+  padding: 0 !important;
+}
+
+.report-validation__token {
+  color: #F23545;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.report-footer {
+  display: flex;
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+
+.report-footer div {
+  width: 50%;
+  position: relative;
+}
+
+.report-footer__right {
+  text-align: right;
+}
+
+.report-footer__left {
+  text-align: left;
+}
+
+.report-validation__qr-code span {
+  color: #282828;
+  font-size: 12px;
+  display: block;
+  max-width: 60%;
+  line-height: 14px;
+  margin: 4px auto;
+}
+
+.container-table {
+  padding: 0 24px;
+  min-height: 100px;
+}
+
+table, td, th {  
+  border: 1px solid #000;  
+}
+
+td {
+  text-align: left;
+}
+
+th {
+  text-align: center;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  padding: 5px;
+}
+
+.min-size {
+  min-width: 130px;
+}

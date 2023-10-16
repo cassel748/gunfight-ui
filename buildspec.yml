@@ -1,0 +1,16 @@
+version: 0.2
+
+artifacts:
+  # include all files required to run application
+  # notably excluded is node_modules, as this will cause overwrite error on deploy
+  files:
+    - pages/**/*
+    - public/**/*
+    - scripts/**/*
+    - src/**/*
+    - .env.production
+    - jsconfig.json
+    - package.json
+    - appspec.yml
+    - next.config.js
+    

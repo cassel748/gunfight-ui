@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>Declaration</title>
+</head>
+<body>
+  <div class="report-box report-text-justify">
+    <p class="report-title"> LAUDO DE CAP. TÉCNICA NO MANUSEIO DE ARMA DE FOGO - Nº............./2022</p>
+
+    <div class="grid">
+      <div class="div-title ">DADOS DO AVALIADO</div>
+      <div class="div-text report-text col-2"><span>NOME: {{affiliationName}}</span>
+        <span>CPF: {{affiliationCPF}}</span>
+      </div>
+      <div class="div-text report-text">ENDEREÇO: {{affiliationAddress}} - {{neighborhood}} - {{cityState}}</div>
+    </div>
+
+    <div class="grid">
+      <div class="div-title">DADOS DA ARMA DE FOGO UTILIZADA</div>
+      <div>
+        <div class="col-2 no-border"><span>ESPÉCIE:</span>
+          <span>CALIBRE:</span>
+        </div>
+        <div class="radio-3 no-border"><span>FUNCIONAMENTO:</span><span>(&nbsp&nbsp&nbsp&nbsp;)
+            repetição</span><span>(&nbsp&nbsp&nbsp&nbsp) semi-automático</span><span>(&nbsp&nbsp&nbsp&nbsp) tiro
+            simples</span></div>
+      </div>
+    </div>
+
+    <div class="grid">
+      <div class="div-title">DECLARAÇÃO</div>
+      <div class="div-text">
+        <p>DECLARO sob as penas da lei, que não me submeti à avaliação da capacidade técnica para o manuseio de armas de
+          fogo (teste de tiro) nos últimos 30 dias. </p>
+      </div>
+      <div class="div-date no-border">
+        <span>Porto Alegre/RS dia {{declarationDate}}</span>
+      </div>
+      <div style="padding: 16px 4px;">
+        <span>ASSINATURA DO AVALIADO: </span>
+      </div>
+    </div>
+    <div class="grid">
+      <div class="div-title">LOCAL DE APLICAÇÃO DE PROVA PRÁTICA
+      </div>
+      <div class="div-text">NOME: ASSOCIAÇÃO GUNFIGHT TRAINING CENTER </div>
+      <div class="div-text no-border">ENDEREÇO: RUA SÃO SALVADOR, 409, BAIRRO SANTA MARIA GORETTI, POA/RS.</div>
+    </div>
+
+    <div class="grid">
+      <div class="div-title">FUNDAMENTAÇÃO</div>
+      <div class="radio-2">
+        <span>FINALIDADE:</span><span>(&nbsp;&nbsp;&nbsp;&nbsp;) Registro</span><span>(&nbsp;&nbsp;&nbsp;&nbsp;)
+          Porte</span>
+      </div>
+      <div class="radio-2 no-border">
+        <span>CATEGORIA:</span><span>(&nbsp;&nbsp;&nbsp;&nbsp;) Defesa Pessoal</span><span>(&nbsp;&nbsp;&nbsp;&nbsp;)
+          Institucional</span>
+      </div>
+      <div class="div-text no-border">NOTA NA PROVA TEÓRICA:...........................
+      </div>
+      <div class="div-text no-border">APTIDÃO NO ALVO SILHUETA (para armas de alma lisa): ......................10m
+        ...................15m</div>
+      <div class="div-text no-border">PONTUAÇÃO NO ALVO SILHUETA: ...............05 m .................07 m
+        ..................20m (rifle)</div>
+      <div class="div-text no-border">PONTUAÇÃO NO ALVO MULTICOLORIDO:....................07 m</div>
+    </div>
+
+    <div class="grid">
+      <div class="div-title">CONCLUSÃO</div>
+      <div class="radio-2alt"><span></span><span>(&nbsp;&nbsp;&nbsp;&nbsp;) APTO</span><span>(&nbsp;&nbsp;&nbsp;&nbsp;)
+          INAPTO</span></div>
+      <div class="div-title">
+        AVALIADOR
+      </div>
+      <div class="col-2"><span>NOME: GUILHERME CRUZ</span><span>CPF N° 000.438.440-73</span></div>
+      <div class="div-text">PORTARIA DE CREDENCIAMENTO 3009/2021 - DREX/SR/PF/RS VALIDADE:03/12/2025</div>
+    </div>
+    <div class="local">PORTO ALEGRE/RS, DIA {{createdAt}}.</div>
+    <div class="signature">GUILHERME CRUZ – IAT CREDENCIADO</div>
+  </div>
+</body>
+
+</html>

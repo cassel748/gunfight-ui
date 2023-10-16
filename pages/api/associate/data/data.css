@@ -1,0 +1,145 @@
+html {
+  font-size: 12px;
+  font-family: 'Open Sans' !important;
+  font-weight: 400;
+}
+
+.bold {
+  font-weight: 600;
+}
+
+a {
+  color: #282828;
+}
+
+.report-box {
+  margin: auto;
+  padding: 16px 0 0;
+  border: 1px solid #eee;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+  font-size: 14px;
+  line-height: 24px;
+  font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
+  color: #555;
+}
+
+.report-box table {
+  width: 100%;
+  line-height: inherit;
+  text-align: left;
+  margin-top: 12px;
+}
+
+.report-box table td {
+  padding: 5px 8px;
+  vertical-align: top;
+}
+
+.report-box table tr th.center,
+.report-box table tr td.center {
+  text-align: center;
+}
+.report-box table tr th.affiliation-number {
+  min-width: 80px;
+}
+
+.report-box table tr td.right{
+  text-align: right;
+}
+
+.report-box table tr.top table td {
+  padding-bottom: 20px;
+}
+
+.report-box table tr.top table td.title {
+  font-size: 45px;
+  line-height: 45px;
+  color: #333;
+}
+
+.report-box table tr.information table td {
+  padding-bottom: 40px;
+}
+
+.report-box table tr.heading td {
+  background: #eee;
+  border-bottom: 1px solid #ddd;
+  font-weight: 600;
+  font-size: 12px;
+}
+
+.report-box table tr.details td {
+  padding-bottom: 20px;
+}
+
+.report-box table tr.item td {
+  border-bottom: 1px solid #eee;
+  font-size: 12px;
+}
+
+.report-box table tr.item.last td {
+  border-bottom: none;
+}
+
+.report-box table tr.total td:nth-child(4) {
+  border-top: 2px solid #eee;
+  font-weight: 600;
+}
+
+.report-header {
+  display: flex;
+  margin-bottom: 12px;
+}
+
+.report-header__logo {
+  padding: 24px;
+  width: 20%;
+  text-align: center;
+}
+
+.report-header__data {				
+  text-align: center;
+  width: 80%;
+}
+
+.report-header__data p {
+  font-size: 11px;
+  line-height: 18px;
+  margin: 0;
+  padding: 0;
+}
+
+.report-header__data h1 {
+  font-size: 24px;
+}
+
+.report-footer {
+  display: flex;
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+
+.report-footer div {
+  width: 50%;
+}
+
+.report-footer__right {
+  text-align: right;
+}
+
+.report-footer__left {
+  text-align: left;
+}
+
+.report-validation__qr-code span {
+  color: #282828;
+  font-size: 12px;
+  display: block;
+  max-width: 60%;
+  line-height: 14px;
+  margin: 4px auto;
+}
+
+.local-and-date {
+  margin-top: 32px;
+}

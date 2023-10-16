@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Marketing Grouped</title>
+  </head>
+
+  <body>
+    <div class="invoice-box">
+      <table cellpadding="0" cellspacing="0" style="margin-bottom: 24px">
+        <tr class="top">
+          <td colspan="4">
+            <table>
+              <tr>
+                <td class="title">
+                  <img
+                    src="{{logoPath}}"
+                    style="width: 100%; max-width: 160px"
+                  />
+                </td>
+
+                <td></td>
+                <td></td>
+
+                <td>
+                  Relatório de Produtos<br />
+                  {{reportDate}}
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <!--<tr class="information">
+					<td colspan="4">
+						<table>
+							<tr>
+								<td>
+									<strong class="bold">Associado</strong><br />
+									{{associateNumber}} - {{associateName}}<br />
+								</td>
+
+								<td class="center">
+									<strong class="bold">Iniciada por</strong><br />
+									{{sellerName}}<br />
+								</td>
+
+								<td class="right">
+									<strong class="bold">Forma de Pagamento</strong><br />
+									{{paymentMethod}}<br />
+								</td>
+							</tr>
+						</table>
+					</td>
+				</tr>-->
+      </table>
+
+      {{itemsTemplate}}
+
+      <!--<div class="invoice-id">Código da Comanda</div>
+			<div class="invoice-id">
+				<img src="{{qrCode}}" style="width: 100%; max-width: 80px" />
+			</div>
+			<div class="invoice-id-value">{{invoiceDbId}}</div>-->
+    </div>
+  </body>
+</html>

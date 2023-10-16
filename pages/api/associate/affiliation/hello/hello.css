@@ -1,0 +1,85 @@
+html {
+  font-size: 12px;
+  font-family: 'Open Sans' !important;
+  font-weight: 400;
+}
+
+.bold {
+  font-weight: 600;
+}
+
+a {
+  color: #282828;
+}
+
+.report-box {
+  max-width: 1000px;
+  margin: auto;
+  padding: 16px 0 0;
+
+  font-size: 14px;
+  line-height: 24px;
+  font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
+  color: #555;
+}
+
+.report-header {
+  display: flex;
+}
+
+.report-header__logo {
+  padding: 24px;
+  width: 100%;
+  text-align: center;
+}
+
+.report-header__data p {
+  font-size: 11px;
+  line-height: 18px;
+  margin: 0;
+  padding: 0;
+}
+
+.report-header__data h1 {
+  font-size: 24px;
+}
+
+.report-title {
+  text-align: center;
+  font-size: 22px;
+  font-weight: bold;
+  padding: 40px 0 0;
+}
+
+.report-text {
+  font-size: 16px;
+}
+
+.report-text-bold {
+  padding: 18px 24px;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.report-text-justify {
+  text-align: justify;
+  padding: 18px 100px;
+}
+
+.report-text-center {
+  text-align: center;
+  padding: 18px 100px;
+}
+
+.report-text-center h4 {
+  margin: 0;
+}
+
+.hello-text {
+  padding-top: 10px;
+}
+
+
+.local-and-date {
+  margin-top: 32px;
+}

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Invoice Single</title>
+    <link rel="stylesheet" href="single.css">
+  </head>
+
+  <body>
+    <div class="invoice-box">
+      <div class="grid">
+        <div class="item logo">
+          <img src="{{logoPath}}" style="width: 100%; max-width: 160px" />
+        </div>
+        <div class="title">
+          <span class="span">
+            Anexo O<br />
+            DEMONSTRATIVO DE SAÍDA DE MUNIÇÕES
+          </span>
+        </div>
+        <div class="mock"></div>
+        <div class="item month">
+          <span>{{monthYear}} </span>
+        </div>
+        <div class="item information">
+          <span class="left"> Entidade de tiro: ASSOCIAÇÃO GUNFIGHT </span>
+          <span class="right"> Registro no Exército CR: 191831 </span>
+        </div>
+      </div>
+      <table>
+        <tr class="heading">
+          <td>Ordem</td>
+          <td class="center" colspan="2">CONSUMIDOR DA MUNIÇÃO</td>
+          <td class="center" colspan="2">
+            EVENTO(curso, prova ou treinamento)
+          </td>
+          <td class="center" colspan="5">MUNIÇÕES</td>
+        </tr>
+        <tr class="heading">
+          <td></td>
+          <td class="center">Nome</td>
+          <td class="center">CR/PRERROGATIVA/CRAF</td>
+          <td class="center">Tipo</td>
+          <td class="center">Data</td>
+          <td class="center">Marca / Modelo / Calibre</td>
+          <td class="center">Lote</td>
+          <td class="center">Quant.</td>
+        </tr>
+
+        {{items}}
+      </table>
+      <div style="text-align: center; margin: 40px 0;">Quantidade total de MUNIÇÕES: {{totalQuantity}}</div>
+      <div style="text-align: center; margin: 40px 0;">{{localDate}}</div>
+      <footer>
+        <div class="invoice-id-value">
+          ______________________ <br />
+          Conselho Fiscal/Consultivo
+        </div>
+        <div class="invoice-id-value">
+          _______________________ <br />
+          Diretor/Presidente
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

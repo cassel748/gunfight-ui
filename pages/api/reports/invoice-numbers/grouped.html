@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Invoice Grouped</title>
+  </head>
+
+  <body>
+    <div class="invoice-box">
+      <table cellpadding="0" cellspacing="0" style="margin-bottom: 4px">
+        <tr class="top">
+          <td >
+            <table>
+                <td>
+                  Relatório de Vendas<br />
+                  {{reportDate}}
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+
+      {{itemsTemplate}}
+
+      <div
+        class="invoice-values-final invoice-values-no-bottom invoice-values-general"
+      >
+        <h3 style="text-align: right; margin-right: 5px">
+          Valor Geral
+        </h3>
+        <div class="invoice-subtotal-geral">
+          Subtotal: {{subtotal}} | Descontos: {{discount}} | Total: {{total}}
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

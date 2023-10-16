@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Invoice Single</title>
+    <link rel="stylesheet" href="single.css" />
+  </head>
+
+  <body>
+    <div class="invoice-box">
+      <div class="grid">
+        <div class="item logo">
+          <img src="{{logoPath}}" style="width: 100%; max-width: 160px" />
+        </div>
+        <div class="title">
+          <span class="span"> DEMONSTRATIVO DE PRODUTOS </span>
+        </div>
+        <div class="mock"></div>
+        <div class="item month">
+          <span>{{localDate}} </span>
+        </div>
+      </div>
+      <table>
+        <tr class="heading">
+          <td class="center">Nome</td>
+          <td class="center">Valor</td>
+          <td class="center">Tipo</td>
+          <td class="center">Tamanho</td>
+          <td class="center">Status</td>
+          <td class="center">Em estoque</td>
+        </tr>
+
+        {{items}}
+      </table>
+      <footer></footer>
+    </div>
+  </body>
+</html>

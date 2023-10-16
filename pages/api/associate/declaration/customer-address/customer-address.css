@@ -1,0 +1,62 @@
+html {
+  font-size: 16px;
+  font-family: 'Open Sans' !important;
+  font-weight: 400;
+}
+
+.bold {
+  font-weight: 600;
+}
+
+.report-box {
+  max-width: 600px;
+  margin: auto;
+  padding: 16px 0 0;
+  font-size: 16px;
+  line-height: 24px;
+  font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
+  color: #000;
+}
+
+.report-title {
+  text-align: center;
+  font-size: 18px;
+  font-weight: 500;
+  padding: 48px 0 0;
+}
+
+.report-text {
+  font-size: 16px;
+}
+
+.report-text-bold {
+  padding: 18px 24px;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.report-text-justify {
+  text-align: justify;
+  padding: 18px 24px;
+}
+
+.report-text-center {
+  text-align: center;
+  padding: 18px 24px;
+}
+
+.report-text-center h4 {
+  margin: 0;
+}
+
+.declaration-text {
+  top: 50%;
+  padding-top: 18px;
+}
+.data-field {
+  display: inline;
+  border-bottom: 1px solid #000;
+  margin-bottom: 6px;
+  padding: 0 12px;
+  text-transform: capitalize;
+}

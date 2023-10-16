@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>Affiliation</title>
+</head>
+
+<body>
+  <!-- PAGE ONE -->
+  <div class="page-one">
+    <div class="session-title first">FICHA CADASTRAL</div>
+    <table>
+      <tbody>
+        {{dataTable}}
+      </tbody>
+    </table>
+    <!-- <div class="documentation">
+      <p class="title-documentation">
+        DOCUMENTAÇÃO NECESSÁRIA PARA AFILIAÇÃO
+      </p>
+      <p class="subtitle-documentation">CÓPIA DO RG E CPF (PODE SER CNH)</p>
+    </div> -->
+    <table>
+      <tbody>
+        {{dataInternalTable}}
+      </tbody>
+    </table>
+    
+  </div>
+  <!-- END PAGE ONE -->
+
+  <!-- PAGE TWO -->
+  <div class="page-two">
+    <div class="page-two-title">ASSOCIAÇÃO GUNFIGHT TRAINING CENTER</div>
+    <p class="paragraph">
+      <strong>1ª</strong> O usuário deverá ser maior de 18 (dezoito) anos e, 
+      para comprovar, deverá apresentar documento de identificação válido e
+      com foto na secretaria do Gunfight.
+    </p>
+    <p class="paragraph">
+      <strong>2ª</strong> É proibido o consumo de álcool nos estandes do
+      Gunfight (pistas), bem como igualmente proibido praticar quaisquer das atividades
+      de tiro sob a influência de álcool ou psicotrópicos.
+    </p>
+    <p class="paragraph">
+      <strong>3ª</strong> É obrigatório o uso de óculos e protetor auricular
+      no estande, caso o atirador não disponha destes, deverá utilizar os
+      disponibilizados pelo Gunfight.
+    </p>
+    <p class="paragraph">
+      <strong>4ª</strong> É permitido utilização de armamento particular,
+      desde que acompanhado de toda documentação necessária e com validade em
+      dia (SIGMA e SINARM), tais como (i) Certificado de Registro de atirador e/ou caçador
+      (CAC), (ii) Certificado de Registro de Arma de Fogo (CRAF) e a Guia de
+      Trânsito (GT), ou registro de arma da Polícia Federal ou Porte de Arma.
+    </p>
+    <p class="paragraph">
+      <strong>5ª</strong> Fora das área específicas ao tiro (estande e pista)
+      é obrigatório transitar com o armamento obrigatoriamente no coldre ou
+      dentro do estojo específico.
+    </p>
+    <p class="paragraph">
+      <strong>6ª</strong> O usuário tem ciência dos riscos inerentes a
+      atividade com armas de fogo e assume todas as responsabilidades civis e
+      criminais sobre suas atividades.
+    </p>
+    <p class="paragraph">
+      <strong>7ª</strong> O usuário deverá respeitar as regras internas do
+      clube, e também, respeitará os profissionais identificados
+      (instrutores) que controlam a operação estande e pista de tiro, sendo
+      estes profissionais, a autoridade máxima dentro do Gunfight.
+    </p>
+    <p class="paragraph">
+      <strong>8ª</strong> O usuário deverá zelar pela dependência do Gunfight
+      e por todas as pessoas que ali estiverem, agindo com comportamento
+      adequado.
+    </p>
+    <p class="paragraph">
+      <strong>9ª</strong> Não é permitida obtenção de qualquer tipo de imagem
+      dos treinos (foto/vídeo), a menos que formalmente autorizada pelo
+      instrutor.
+    </p>
+    <p class="paragraph">
+      <strong>10ª</strong> O usuário deverá estar vestido adequadamente,
+      utilizando sempre, sapatos, calça ou bermuda, e camiseta. É vedado o uso
+      de chinelos e quaisquer outras vestimentas que representem riscos à
+      atividade do tiro.
+    </p>
+    <p class="paragraph">
+      <strong>11ª</strong> O usuário declara não estar respondendo a inquérito
+      policial ou processo criminal, além de não ter cadastro positivo em
+      nenhum dos órgãos que vedem a prática esportiva de tiro.
+    </p>
+    <p class="paragraph">
+      <strong>12ª</strong> O usuário declara que leu e concordou com todo o
+      regramento do Gunfight e, por eventual descumprimento, será retirado do
+      estabelecimento, sem prejuízo da sua responsabilização civil e criminal.
+    </p>
+    <p class="paragraph">
+      <strong>13ª</strong> Eventuais omissões deste documento serão supridas
+      pelos regramentos do Exército Brasileiro e da Polícia Federal
+      Brasileira, ficando a critério do Gunfight permitir ou não o acesso às
+      suas dependências.
+    </p>
+    <p class="paragraph">
+      <strong>14ª</strong> O presente contrato é celebrado em caráter
+      irrevogável e irretratável, renunciando as partes a faculdade de
+      arrependimento.
+    </p>
+    <p class="paragraph">
+      <strong>15ª</strong> O presente contrato tem validade enquanto a anuidade estiver em dia.
+    </p>
+    <p class="paragraph">
+      <strong>16ª</strong> Em necessidade de cancelamento da anuidade, o valor não será reembolsável, podendo o filiado optar por trancamento para uso posterior, não excedendo duas vezes do tempo restante..
+    </p>
+    <p class="paragraph">
+      <strong>17ª</strong> Obrigatório ter Certificado de Registro (CR).
+    </p>
+    <p class="paragraph">
+      <strong>18ª</strong> O uso de munição própria só está autorizada para utilização na BANCADA.
+    </p>
+  
+
+    <div class="signature-data">Eu, <div class="data-field">{{myName}}</div>, CPF
+      Nº <div class="data-field">{{myCpf}}</div>, RG Nº <div class="data-field">{{myRg}}</div>, DECLARO, para os devidos
+      fins,
+      que li e concordei com o cumprimento de todas as regras do GUNFIGHT listadas acima, parte integrante
+      deste documento, e, que sou responsável pelas condutas diretas e indiretas que causar.<div>
+      </div>
+      <div class="signature-date">Porto Alegre,<div class="data-field">{{actualDay}}</div> de <div class="data-field">
+          {{actualMonth}}</div> de <div class="data-field">{{actualYear}}</div>.<div>
+          <div class="signature">______________________________________________________<br><strong>Assinatura</strong>
+          </div>
+          <div class="createdBy">Ficha cadastral criada por {{createdBy}}
+          </div>
+
+   
+        </div>
+        <!-- END PAGE TWO -->
+</body>
+
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<title>Declaration</title>
+</head>
+
+<body>
+	<div class="report-box">
+		<div class="report-header">
+			<div class="report-header__logo">
+				<img src="{{logoPath}}" style="width: 100%; max-width: 180px" />
+			</div>
+			<div class="report-header__data">
+				<h1>ASSOCIAÇÃO GUNFIGHT TRAINING CENTER</h1>
+				<p>
+					RUA SÃO SALVADOR, 409, SANTA MARIA GORETTI , CEP: 91030-240.<br />
+					PORTO ALEGRE/RS.
+				</p>
+				<p>
+					Nº CR: 191831 - Telefone: (51)3105-7778.
+				</p>
+			</div>
+		</div>
+		<div class="report-title">
+			DECLARAÇÃO DE HABITUALIDADE:
+		</div>
+		<div class="declaration-text report-text report-text-justify">
+			<p>
+				A/O <strong>ASSOCIAÇÃO GUNFIGHT TRAINING CENTER</strong>, inscrito no CNPJ/MF sob o nº
+				28.857.546/0001-82
+				e Certificado de Registro nº 191831, com sede na RUA SÃO SALVADOR, 409, SANTA MARIA GORETTI, PORTO
+				ALEGRE/RS -
+				CEP 91030-240, <strong><u>DECLARA</u></strong>, para fim de comprovação junto ao Exército Brasileiro,
+				que
+				<strong>{{habitualityName}}</strong>,<strong> CR</strong> Nº {{habitualityDocument}}, inscrito nessa
+				entidade sob o nº <strong>{{habitualityNumber}}</strong>, com vencimento da anuidade
+				<strong>{{nextPaymentDate}}</strong>, e que participou dos seguintes treinamentos ou competições do
+				Gunfight:
+			</p>
+		</div>
+		<div class="container-table">
+			<table>
+				<table cellpadding="0" cellspacing="0">
+					<tbody>
+						<tr>
+							<th class="min-size">LOCAL:</th>
+							<th>DATA:</th>
+							<th class="min-size">EVENTO/ATIVIDADE:</th>
+						</tr>
+						{{items}}
+					</tbody>
+				</table>
+		</div>
+		<div class="declaration-text report-text report-text-justify">
+			<p>
+				Os registros que comprovam as informações acima do referido atirador desportivo estão disponíveis, a
+				qualquer
+				momento, para a fiscalização de produtos controlados.
+			</p>
+		</div>
+		<div class="report-text-bold">
+			Esta declaração tem validade de 90 dias.
+		</div>
+
+		<div class="local-and-date report-text-center">
+			PORTO ALEGRE/RS, {{actualDate}}.
+		</div>
+
+		<div class="report-text-center">
+			<h4>
+				ASSOCIAÇÃO GUNFIGHT TRAINING CENTER
+			</h4>
+			<h4>
+				PRESIDENTE: MAURO DUARTE DE VASCONCELLOS
+			</h4>
+		</div>
+
+		<div class="report-validation">
+			<div class="report-validation__qr-code">
+				<img src="{{qrCode}}" style="width: 100%; max-width: 180px" /><br />
+
+				<span>
+					Leia com seu Celular ou Tablet o QRCode acima para validar está declaração.
+				</span>
+			</div>
+
+			<div class="report-validation__id">
+				<span><strong>Código de Autenticação:</strong></span><br />
+
+				<span class="report-validation__token">{{validationCode}}</span><br />
+
+				<p>
+					<strong>
+						Emitido em {{emissionDate}} as {{emissionHour}}.<br />
+						Este documento pode ser validado via:
+					</strong> <br />
+
+					Telefone: (51) 3105-7778<br />
+					Ou em <a
+						href="https://gunfight.app/consulta?token={{validationId}}">https://gunfight.app/consulta</a>
+				</p>
+			</div>
+		</div>
+	</div>
+	<div style="width: 100%;height: 100%;position: absolute;top: 0;">
+		{{stamp}}
+	</div>
+</body>
+
+</html>

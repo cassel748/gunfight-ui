@@ -1,0 +1,8 @@
+{
+  "projects": {
+    "default": "gunfight-backoffice",
+    "dev": "gunfight-backoffice-dev",
+    "staging": "gunfight-backoffice-staging"
+  },
+  "targets": {}
+}

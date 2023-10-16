@@ -1,0 +1,22 @@
+.itemOverview {
+  width: 100%;
+  height: 50px;
+  margin-left: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #3a1014;
+  border-radius: 8px;
+  margin-top: 24px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  margin-left: 24px;
+  z-index: 9;
+}
+
+.itemOverviewGrid {
+  margin-left: 24px;
+  border: 1px solid #3a1114;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}

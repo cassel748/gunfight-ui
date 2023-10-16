@@ -1,0 +1,12 @@
+{
+  "functions": {
+    "pages/api/associate/data/pdf.js": {
+      "memory": 3008,
+      "maxDuration": 60
+    },
+    "pages/api/reports/invoice/index.js": {
+      "memory": 3008,
+      "maxDuration": 60
+    }
+  }
+}
