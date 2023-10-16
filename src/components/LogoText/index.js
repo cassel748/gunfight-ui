@@ -7,6 +7,6 @@ export default function LogoText({ width = 200, height = 68 }) {
   const logoImage = themeMode === 'light' ? '' : '_white';
 
   return (
-    <Image src={`/static/brand/logo_gunfight${logoImage}.png`} alt="LOGO GUNFIGHT" width={width} height={height} />
+    <Image src={`/static/brand/logo_gunfight${logoImage}.png`} alt="LOGO GUNFIGHT" width={width} height={height} priority={false} />
   )
 }

@@ -5,13 +5,13 @@ import "firebase/firestore";
 import { Provider } from 'react-redux';
 import useMenu from "src/hooks/useMenu";
 import 'react-quill/dist/quill.snow.css';
-import { store } from '../src/app/store';
+import { store } from '../src/common/store';
 import dynamic from "next/dynamic";
 
 initAuth();
 
 const App = dynamic(
-  () => import("src/app"),
+  () => import("src/common"),
   { ssr: false }
 );
 

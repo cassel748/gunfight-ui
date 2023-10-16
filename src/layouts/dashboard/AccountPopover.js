@@ -144,7 +144,7 @@ export default function AccountPopover() {
           >
             <MenuItem
               onClick={() => handleClose(option)}
-              sx={{ typography: "body2", py: 1, px: 2.5 }}
+              sx={{ typography: "body2", py: 1, px: 2.5, color: "primary.main" }}
             >
               <Box
                 component={Icon}
