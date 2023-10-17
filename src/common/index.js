@@ -21,6 +21,7 @@ import { useRouter } from "next/router";
 import { dispatchEvent } from "src/utils/events";
 import { ErrorBoundary } from "react-error-boundary";
 import { CircularProgress } from "@material-ui/core";
+import ErrorTemplate from "./error";
 
 const BarcodeReader = dynamic(() => import("react-barcode-reader"), {
   ssr: false,
@@ -108,20 +109,7 @@ const App = ({ children }) => {
   };
 
   return (
-    <ErrorBoundary
-      fallback={
-        <div
-          style={{
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            minHeight: 300 }
-          }
-        >
-          <CircularProgress />
-        </div>
-      }
-    >
+    <ErrorBoundary fallback={<ErrorTemplate />}>
       <MenuProvider>
         <SettingsProvider>
           <ThemeConfig>

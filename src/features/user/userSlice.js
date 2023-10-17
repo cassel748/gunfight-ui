@@ -19,8 +19,6 @@ export const userSlice = createSlice({
   
         window.localStorage.setItem(`${STORAGE_PREFIX}userInfo`, JSON.stringify(action.payload));
       }
-
-      window.location.reload();
     }
   },
 });

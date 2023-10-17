@@ -18,6 +18,7 @@ import {
   differenceInDays,
   startOfToday,
 } from "src/utils/localizedDateFns";
+import { USER_TYPE } from "src/utils/auth";
 
 const nextPaymentColors = {
   default: "#F23545",
@@ -32,7 +33,7 @@ const CommandDetail = ({ commands, finalizeCommand, type }) => {
   const userInfo = useSelector((state) => state.user.userInfo);
 
   const [seeValue, setSeeValue] = useState(
-    userInfo.accessLevel === 1 ? false : true
+    userInfo?.accessLevel === USER_TYPE.INSTRUCTOR ? false : true
   );
 
   const theme = useTheme();
