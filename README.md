@@ -121,7 +121,7 @@ git config user.email "sistemagunfight@gmail.com"
 <br />
 
 ```
-https://gunfight.app/api/internal/normalize-date?collection=invoice-items
+https://www.gunfight.app/api/internal/normalize-date?collection=invoice-items
 ```
 If collection is not passed we assume "invoice" as default
 
