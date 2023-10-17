@@ -9,14 +9,7 @@ export default function ErrorTemplate() {
   }, [])
 
   return (
-    <div
-      style={{
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        minHeight: 300 }
-      }
-    >
+    <div className="error-boundary">
       <CircularProgress />
     </div>
   )

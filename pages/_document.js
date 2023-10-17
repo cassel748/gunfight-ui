@@ -46,6 +46,24 @@ class MyDocument extends Document {
             content="react,material,kit,application,dashboard,admin,template"
           />
           <meta name="author" content="Olufsen" />
+          <style>{`
+            body {margin: 0;}
+            .error-boundary {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              position: absolute;
+              width: 100%;
+              height: 100%;
+              background-color: #161C24;
+            }
+
+            .error-boundary span {
+              color: #F23545;
+              width: 62px !important;
+              height: 62px !important;
+            }
+          `}</style>
         </Head>
         <body>
           <Main />
