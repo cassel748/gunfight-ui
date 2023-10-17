@@ -73,7 +73,7 @@ const EventHistoryList = ({ eventHistory, isLoading }) => {
                 <TableCell>
                   {getDateLocalized(
                     new Date(event.createdAt),
-                    "dd/MM/yyyy - hh:ss"
+                    "dd/MM/yyyy - hh:mm"
                   )}
                 </TableCell>
               </TableRow>
