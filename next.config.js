@@ -1,9 +1,4 @@
-const withPWA = require('next-pwa')({
-  dest: 'public',
-  disable: process.env.NODE_ENV === 'development'
-});
-
-module.exports = withPWA({
+module.exports = {
     //swcMinify: true,
     async redirects() {
       return [
@@ -51,4 +46,4 @@ module.exports = withPWA({
       STORAGE_PREFIX: process.env.STORAGE_PREFIX,
       PRODUCTION: process.env.PRODUCTION,
     },
-});
+};
