@@ -49,7 +49,7 @@ export function RestrictedButton({
 
   const formik = useFormik({
     initialValues: {
-      email: "",
+      email: "adm@gunfight.app",
       password: "",
     },
     validationSchema: LoginSchema,
@@ -127,7 +127,7 @@ export function RestrictedButton({
                   fullWidth
                   type="email"
                   label="E-mail"
-                  autoFocus={true}
+                  
                   autoComplete="new-password"
                   {...getFieldProps("email")}
                   error={Boolean(touched.email && errors.email)}
@@ -151,6 +151,7 @@ export function RestrictedButton({
                   }}
                   error={Boolean(touched.password && errors.password)}
                   helperText={touched.password && errors.password}
+                  autoFocus={true}
                 />
               </Stack>
               <LoadingButton

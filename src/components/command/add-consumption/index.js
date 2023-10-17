@@ -700,7 +700,7 @@ const AddConsumption = ({
               </>
             )}
 
-            {product && product.price && (
+            {product && product.price !== null && (
               <Grid item xs={4} style={{ paddingLeft: 0, marginLeft: 20 }}>
                 <InputCurrency
                   style={{
@@ -744,7 +744,7 @@ const AddConsumption = ({
               </Grid>
             )}
 
-            {product && product.price && (
+            {product && product.price !== null && (
               <>
                 <div className={styles.itemOverview}>
                   <Grid container>

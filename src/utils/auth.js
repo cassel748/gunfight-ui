@@ -20,7 +20,7 @@ export const STORAGE_PREFIX = process.env.STORAGE_PREFIX;
 
 export const USER_TYPE = {
   SUPER: 99,
-  VALIDATOR: 99,
+  VALIDATOR: 98,
   ADMINISTRATOR: 4,
   MARKETING: 3,
   SELLING: 2,

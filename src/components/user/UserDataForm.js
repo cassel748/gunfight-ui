@@ -1337,7 +1337,7 @@ export default function UserDataForm({ currentUser }) {
 
                         {nextPaymentDisabled &&
                           <RestrictedButton
-                            requiredAccessLevel={USER_TYPE.SUPER}
+                            requiredAccessLevel={USER_TYPE.ADMINISTRATOR}
                             style={{ textAlign: 'center', minWidth: 125 }}
                             onClick={activeChangeNextPayment}
                             variant="outlined"
