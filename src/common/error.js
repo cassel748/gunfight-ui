@@ -4,7 +4,9 @@ import { CircularProgress } from '@material-ui/core';
 export default function ErrorTemplate() {
   useEffect(() => {
     setTimeout(() => {
-      window.location.reload()
+      if (typeof window !== "undefined") {
+        window.location.reload()
+      }
     }, 300);
   }, [])
 
