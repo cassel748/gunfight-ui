@@ -37,8 +37,8 @@ function LoginPage() {
   }
 
   const userInfo = useSelector((state) => state.user.userInfo);
-
-  useEffect(async () => {
+  
+  const handleLogin = async () => {
     const user = firebase.auth().currentUser;
 
     if (user) {
@@ -67,6 +67,10 @@ function LoginPage() {
         localStorage.setItem("deleted-cookies-1", "true");
       }
     }
+  };
+
+  useEffect(async () => {
+    handleLogin()
   }, []);
 
   return (

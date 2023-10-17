@@ -19,6 +19,8 @@ import dynamic from "next/dynamic";
 import Toast from "src/utils/toast";
 import { useRouter } from "next/router";
 import { dispatchEvent } from "src/utils/events";
+import { ErrorBoundary } from "react-error-boundary";
+import { CircularProgress } from "@material-ui/core";
 
 const BarcodeReader = dynamic(() => import("react-barcode-reader"), {
   ssr: false,
@@ -29,7 +31,7 @@ const App = ({ children }) => {
   const router = useRouter();
   let idToken = null;
 
-  useEffect(async () => {
+  const handleInit = async () => {
     // Remove the server-side injected CSS.
     const jssStyles = document.querySelector("#jss-server-side");
     if (jssStyles) {
@@ -58,6 +60,10 @@ const App = ({ children }) => {
 
     firebase.auth().onAuthStateChanged(handleUser);
     firebase.auth().onIdTokenChanged(handleUser);
+  };
+
+  useEffect(async () => {
+    handleInit();
   }, []);
 
   const handleInvoice = async (data) => {
@@ -102,33 +108,48 @@ const App = ({ children }) => {
   };
 
   return (
-    <MenuProvider>
-      <SettingsProvider>
-        <ThemeConfig>
-          <ThemePrimaryColor>
-            <LocalizationProvider dateAdapter={AdapterDateFns} locale={ptBR}>
-              <RtlLayout>
-                <Settings />
-                <Head>
-                  <meta
-                    name="viewport"
-                    content="width=device-width, initial-scale=1, shrink-to-fit=no"
-                  />
-                </Head>
+    <ErrorBoundary
+      fallback={
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            minHeight: 300 }
+          }
+        >
+          <CircularProgress />
+        </div>
+      }
+    >
+      <MenuProvider>
+        <SettingsProvider>
+          <ThemeConfig>
+            <ThemePrimaryColor>
+              <LocalizationProvider dateAdapter={AdapterDateFns} locale={ptBR}>
+                <RtlLayout>
+                  <Settings />
+                  <Head>
+                    <meta
+                      name="viewport"
+                      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+                    />
+                  </Head>
 
-                {children}
+                  {children}
 
-                <TopProgressBar />
+                  <TopProgressBar />
 
-                <Toaster position="top-center" reverseOrder={false} />
-              </RtlLayout>
+                  <Toaster position="top-center" reverseOrder={false} />
+                </RtlLayout>
 
-              <BarcodeReader onError={handleInvoice} onScan={handleInvoice} />
-            </LocalizationProvider>
-          </ThemePrimaryColor>
-        </ThemeConfig>
-      </SettingsProvider>
-    </MenuProvider>
+                <BarcodeReader onError={handleInvoice} onScan={handleInvoice} />
+              </LocalizationProvider>
+            </ThemePrimaryColor>
+          </ThemeConfig>
+        </SettingsProvider>
+      </MenuProvider>
+    </ErrorBoundary>
   );
 };
 

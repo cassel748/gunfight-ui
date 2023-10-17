@@ -10,7 +10,7 @@ import { Container, Typography, Stack, Pagination } from "@material-ui/core";
 import AssociatesFilter from "src/components/user/components/associates-filter";
 import { useEffect, useState } from "react";
 import { AuthAction, useAuthUser, withAuthUser } from "next-firebase-auth";
-import { generateId, withAuthLevel } from "src/utils/auth";
+import { USER_TYPE, generateId, withAuthLevel } from "src/utils/auth";
 import Toast from "src/utils/toast";
 import { printFile } from "src/utils/file";
 import { useSelector } from "react-redux";
@@ -158,7 +158,7 @@ function Register() {
               Lista de Associados
             </Typography>
             <div>
-              {userInfo.accessLevel === 99 && (
+              {userInfo?.accessLevel === USER_TYPE.SUPER && (
                 <LoadingButton
                   type="button"
                   size="medium"

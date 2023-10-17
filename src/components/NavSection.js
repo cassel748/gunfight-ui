@@ -24,6 +24,7 @@ import {
 import useMenu from "src/hooks/useMenu";
 import SvgIconStyle from "./SvgIconStyle";
 import { useSelector } from "react-redux";
+import { USER_TYPE } from "src/utils/auth";
 
 // ----------------------------------------------------------------------
 
@@ -204,7 +205,7 @@ export default function NavSection({ ...other }) {
   const userInfo = useSelector((state) => state.user.userInfo);
 
   const filteredMenus = menuConfig.filter((item) => {
-    if (userInfo?.accessLevel === 99 || (item.subheader && item.active)) {
+    if (userInfo?.accessLevel === USER_TYPE.SUPER || (item.subheader && item.active)) {
       return true;
     }
 

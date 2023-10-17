@@ -77,7 +77,7 @@ const CommandInvoiceList = ({
               commandStatus === 3 ? null : (
                 <>
                   <TableCell width={"7%"} />
-                  {userInfo.accessLevel === 99 && <TableCell width={"7%"} />}
+                  {userInfo?.accessLevel === USER_TYPE.SUPER && <TableCell width={"7%"} />}
                 </>
               )}
             </TableRow>

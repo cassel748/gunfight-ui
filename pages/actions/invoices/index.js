@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import firebase from "firebase/app";
 import Page from "src/components/Page";
 import { useSelector } from "react-redux";
-import { withAuthLevel } from "src/utils/auth";
+import { USER_TYPE, withAuthLevel } from "src/utils/auth";
 import clock from "@iconify/icons-eva/clock-fill";
 import Command from "src/utils/mock-list/command";
 import DashboardLayout from "src/layouts/dashboard";
@@ -268,7 +268,7 @@ function Commands() {
               </TabsWrapper>
             </Stack>
             <Card sx={{ minHeight: 800 }}>
-              {userInfo.accessLevel === 99 && (
+              {userInfo?.accessLevel === USER_TYPE.SUPER && (
                 <Stack
                   direction="row"
                   divider={

@@ -51,7 +51,7 @@ const AddConsumption = ({
     };
   }, []);
 
-  useEffect(() => {
+  const handleAdd = async (currentConsumption) => {
     if (
       currentConsumption &&
       currentConsumption.productTitle &&
@@ -85,6 +85,10 @@ const AddConsumption = ({
           });
       });
     }
+  }; 
+
+  useEffect(() => {
+    handleAdd(currentConsumption)
   }, [currentConsumption]);
 
   const shape = {
