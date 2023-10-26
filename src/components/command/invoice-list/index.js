@@ -223,17 +223,16 @@ const CommandInvoiceList = ({
                       <>
                         {!consumables.fromInventory ? (
                           <TableCell>
-                            <RestrictedButton
+                            <LoadingButton
                               fullWidth
                               type="button"
                               size="small"
                               loading={false}
                               variant="text"
                               onClick={() => editItem(consumables)}
-                              requiredAccessLevel={USER_TYPE.ADMINISTRATOR}
                             >
                               Editar
-                            </RestrictedButton>
+                            </LoadingButton>
                           </TableCell>
                         ) : (
                           <TableCell />
