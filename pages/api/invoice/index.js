@@ -169,6 +169,12 @@ const handleFinish = async (res, body) => {
     if (responseItems && responseItems.size) {
       let dbQueryEvents = db.collection(DB_COLLECTION_ASSOCIATE_EVENTS);
 
+      // aqui: filtrar responseItems que tiverem o productType === 2
+      // lista filtrada
+      // item.caliber(item.quantity) e gerar uma string com os calibres ex: "9mm(10), 12GA(5), .380(30)"
+      /// const calibers = "9mm(10), 12GA(5), .380(30)";
+      const calibers = "";
+
       const responseEvents = await dbQueryEvents
         .where("type", "==", 99)
         .where("associateId", "==", invoice.associateId)
@@ -182,6 +188,7 @@ const handleFinish = async (res, body) => {
           name: "Habitualidade",
           type: 99,
           associateId: invoice.associateId,
+          caliber: calibers,
           createdBy: body.finishedBy,
           createdAt: getDateLocalized(new Date(), "MM-dd-yyyy HH:mm:ss"),
           createdDate: getDateLocalized(new Date(), "MM-dd-yyyy"),

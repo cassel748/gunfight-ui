@@ -140,11 +140,13 @@ const handlePrint = (req, res, id) => {
         items += `
           <tr>
             <td class="center">ASSOCIAÇÃO GUNFIGHT TRAINING CENTER</td>
-            <td class="center">${getDateLocalized(
-          new Date(event.createdDate),
-          "dd/MM/yyyy"
-        )}</td>
+            <td class="center">
+              ${getDateLocalized(new Date(event.createdDate),"dd/MM/yyyy")}
+            </td>
             <td class="center">TREINO</td>
+            <td class="center">
+              ${event.caliber}
+            </td>
           </tr>
         `;
       }
