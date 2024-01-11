@@ -520,7 +520,7 @@ export const FIREARM_CALIBERS = [
   { title: ".40 S&W", value: 10 },
   { title: ".44 Magnum", value: 11 },
   { title: ".32 ACP", value: 27 },
-  { title: ".38 ACP", value: 37 },
+  { title: ".38 ACP", value: 38 },
   { title: ".25 ACP", value: 28 },
   { title: ".44 Special", value: 29 },
   { title: ".41 Magnum", value: 30 },
