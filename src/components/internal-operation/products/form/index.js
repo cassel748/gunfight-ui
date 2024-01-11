@@ -15,6 +15,7 @@ import {
   getOriginColor,
   getStatusColor,
   SITUATION_PRODUCT,
+  FIREARM_CALIBERS,
 } from "src/utils/enums";
 import {
   Box,
@@ -48,6 +49,12 @@ const FormProduct = ({ currentProduct, handleClose }) => {
     eventAttached: Yup.bool(),
     inventoryQuantity: Yup.number(),
     minimumInventoryQuantity: Yup.number(),
+    caliber: Yup.string().when("type", {
+      is: (type) => {
+        return ["2", "7"].includes(type)
+      },
+      then: Yup.string().required("Calibre obrigatório"),
+    }),
   });
 
   const formik = useFormik({
@@ -66,8 +73,10 @@ const FormProduct = ({ currentProduct, handleClose }) => {
       eventAttached: currentProduct?.eventAttached || false,
       inventoryQuantity: currentProduct?.inventoryQuantity || "",
       minimumInventoryQuantity: currentProduct?.minimumInventoryQuantity || "",
+      caliber: currentProduct?.caliber || "",
+      status: currentProduct?.status || "A",
     },
-
+    enableReinitialize: true,
     validationSchema: UserAddressSchema,
     onSubmit: async (values) => {
       try {
@@ -192,7 +201,6 @@ const FormProduct = ({ currentProduct, handleClose }) => {
                     value={option.value}
                     onClick={() => {
                       setTypeValue(option.value);
-                      console.log(option.value);
                     }}
                   >
                     <Label
@@ -204,6 +212,32 @@ const FormProduct = ({ currentProduct, handleClose }) => {
                   </MenuItem>
                 ))}
               </TextField>
+
+              {(values.type === 7 || values.type === 2) && (
+                <TextField
+                  select
+                  fullWidth
+                  label="Calibre"
+                  placeholder="Calibre"
+                  {...getFieldProps("caliber")}
+                  error={Boolean(touched.caliber && errors.caliber)}
+                  helperText={touched.caliber && errors.caliber}
+                >
+                  {FIREARM_CALIBERS.map((option) => (
+                    <MenuItem
+                      key={option.value}
+                      value={option.value}
+                      onClick={() => {
+                        setTypeValue(option.value);
+                        console.log(option.value);
+                      }}
+                    >
+                      {option.title}
+                    </MenuItem>
+                  ))}
+                </TextField>
+              )}
+
               <TextField
                 select
                 fullWidth
@@ -223,6 +257,12 @@ const FormProduct = ({ currentProduct, handleClose }) => {
                   </MenuItem>
                 ))}
               </TextField>
+            </Stack>
+
+            <Stack
+              direction={{ xs: "column", sm: "row" }}
+              spacing={{ xs: 3, sm: 2 }}
+            >
               {typeValue !== 8 && (
                 <TextField
                   fullWidth
@@ -252,6 +292,7 @@ const FormProduct = ({ currentProduct, handleClose }) => {
                 )}
               />
             </Stack>
+
             <Stack
               direction={{ xs: "column", sm: "row" }}
               spacing={{ xs: 3, sm: 2 }}

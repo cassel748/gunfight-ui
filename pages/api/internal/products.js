@@ -131,6 +131,7 @@ const handlePost = async (res, body) => {
       inventoryQuantity: body.inventoryQuantity,
       minimumInventoryQuantity: body.minimumInventoryQuantity,
       createdBy: body.createdBy,
+      caliber: body.caliber,
       createdAt: getDateLocalized(new Date(), "MM-dd-yyyy HH:mm:ss"),
       createdDate: getDateLocalized(new Date(), "MM-dd-yyyy"),
       createdDateTimestamp: new Date(),
@@ -212,6 +213,7 @@ const handleUpdate = async (res, body) => {
       inventoryQuantity: body.inventoryQuantity,
       minimumInventoryQuantity: body.minimumInventoryQuantity,
       modifiedBy: body.modifiedBy,
+      caliber: body.caliber,
       modifiedAt: getDateLocalized(new Date(), "MM-dd-yyyy HH:mm:ss"),
       modifiedDate: getDateLocalized(new Date(), "MM-dd-yyyy"),
     };
