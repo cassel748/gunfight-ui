@@ -57,7 +57,7 @@ const Products = () => {
   const closeNewDialog = (shouldReload) => {
     setIsOpenNewDialog(false);
     if (shouldReload === true) {
-      performSearch(null, 1);
+      performSearch(actualFilter, 1);
     }
   };
 
