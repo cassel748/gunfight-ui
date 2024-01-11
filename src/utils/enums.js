@@ -513,7 +513,7 @@ export const verifyTypeUser = (user) => {
     return "--------";
   }
 };
-const FIREARM_CALIBERS = [
+export const FIREARM_CALIBERS = [
   { title: "9mm", value: 1 },
   { title: ".380", value: 2 },
   { title: ".45", value: 3 },
@@ -535,12 +535,15 @@ const FIREARM_CALIBERS = [
   { title: "300 Blk", value: 33 },
 
   { title: "12 gauge", value: 8 },
+  { title: "16 gauge", value: 36 },
   { title: "20 gauge", value: 9 },
+  { title: "36 gauge", value: 37 },
   { title: "20mm", value: 31 },
   { title: ".50 BMG", value: 21 },
   { title: ".338 Lapua", value: 22 },
   { title: ".22 LR", value: 23 },
   { title: ".17 HMR", value: 24 },
+  { title: ".36", value: 37 },
   { title: "454 Casull", value: 32 },
 
   { title: "7mm Remington Magnum", value: 14 },
