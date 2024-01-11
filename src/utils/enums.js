@@ -520,6 +520,7 @@ export const FIREARM_CALIBERS = [
   { title: ".40 S&W", value: 10 },
   { title: ".44 Magnum", value: 11 },
   { title: ".32 ACP", value: 27 },
+  { title: ".38 ACP", value: 37 },
   { title: ".25 ACP", value: 28 },
   { title: ".44 Special", value: 29 },
   { title: ".41 Magnum", value: 30 },
@@ -543,7 +544,6 @@ export const FIREARM_CALIBERS = [
   { title: ".338 Lapua", value: 22 },
   { title: ".22 LR", value: 23 },
   { title: ".17 HMR", value: 24 },
-  { title: ".36", value: 37 },
   { title: "454 Casull", value: 32 },
 
   { title: "7mm Remington Magnum", value: 14 },
