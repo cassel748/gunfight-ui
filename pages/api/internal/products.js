@@ -39,9 +39,9 @@ const handleQuery = async (res, query) => {
     const snapshots = await dbQuery
       .orderBy("status")
       .orderBy("title")
-      // .orderBy("type")
+      .orderBy("type")
       .where("status", "!=", "D")
-      .offset(page)
+      .offset(hasFilter ? 0 : page)
       .get();
 
     const products = [];
@@ -66,14 +66,12 @@ const handleQuery = async (res, query) => {
       }
     });
 
-    const count = hasFilter
-      ? filtered.length
-      : await Firebase.getCount(DB_COLLECTION);
+    const count = await Firebase.getCount(DB_COLLECTION);
 
     return res.status(200).json({
       results: filtered,
       pagination: {
-        pages: Math.ceil(count / 10),
+        pages: hasFilter ? 1 : Math.floor(count / 10) - 1,
         totalCount: count,
       },
     });

@@ -295,17 +295,16 @@ const Products = () => {
               currentProduct={currentProduct}
             />
           </DialogAnimate>
-          {productsItems?.length > 0 && (
-            <Box sx={{ mt: 5, display: "flex", justifyContent: "flex-end" }}>
-              <Pagination
-                count={pages}
-                color="primary"
-                rowsPerPage={10}
-                page={actualPage}
-                onChange={handlePageChange}
-              />
-            </Box>
-          )}
+          
+          <Box sx={{ mt: 5, display: "flex", justifyContent: "flex-end" }}>
+            <Pagination
+              count={pages}
+              color="primary"
+              rowsPerPage={10}
+              page={actualPage}
+              onChange={handlePageChange}
+            />
+          </Box>
         </Container>
         <Confirm
           title="Excluir Produto"
