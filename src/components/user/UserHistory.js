@@ -6,6 +6,7 @@ import TabList from "@material-ui/lab/TabList";
 import TabPanel from "@material-ui/lab/TabPanel";
 import TabContext from "@material-ui/lab/TabContext";
 import { experimentalStyled as styled } from "@material-ui/core/styles";
+import { useRouter } from "next/router";
 
 const UserInChargeHistory = dynamic(() => import("./UserInChargeHistory"), {
   ssr: false,
@@ -45,7 +46,9 @@ const TabItem = styled(Tab)(({ theme }) => ({
 }));
 
 export default function UserHistory({ userId }) {
-  const [activeTab, setActiveTab] = useState("1");
+  const { query } = useRouter();
+  
+  const [activeTab, setActiveTab] = useState(query.tab || "1");
 
   const handleChange = (event, newValue) => {
     setActiveTab(newValue);

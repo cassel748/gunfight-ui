@@ -555,3 +555,13 @@ export const FIREARM_CALIBERS = [
   { title: ".30-30 Winchester", value: 34 },
   { title: ".30 Carbine", value: 35 },
 ];
+
+// IDs de Produtos com calibre:
+// Bancada, Munição Clube, Personal, Pista (Campeonato)
+export const MUST_CONTAIN_CALIBER_STRING = [
+  "16", "2", "18", "17"
+];
+
+export const MUST_CONTAIN_CALIBER_NUMBER = [
+  16, 2, 18, 17
+];

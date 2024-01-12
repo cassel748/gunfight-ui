@@ -16,6 +16,8 @@ import {
   getStatusColor,
   SITUATION_PRODUCT,
   FIREARM_CALIBERS,
+  MUST_CONTAIN_CALIBER_STRING,
+  MUST_CONTAIN_CALIBER_NUMBER,
 } from "src/utils/enums";
 import {
   Box,
@@ -51,7 +53,7 @@ const FormProduct = ({ currentProduct, handleClose }) => {
     minimumInventoryQuantity: Yup.number(),
     caliber: Yup.string().when("type", {
       is: (type) => {
-        return ["2", "7"].includes(type)
+        return MUST_CONTAIN_CALIBER_STRING.includes(type)
       },
       then: Yup.string().required("Calibre obrigatório"),
     }),
@@ -213,7 +215,7 @@ const FormProduct = ({ currentProduct, handleClose }) => {
                 ))}
               </TextField>
 
-              {(values.type === 7 || values.type === 2) && (
+              {MUST_CONTAIN_CALIBER_NUMBER.includes(values.type) && (
                 <TextField
                   select
                   fullWidth

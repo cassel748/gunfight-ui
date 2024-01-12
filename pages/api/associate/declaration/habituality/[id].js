@@ -12,6 +12,7 @@ import {
 import { getPdfBuffer } from "src/utils/puppeteer";
 import templateHtml from "./habituality.html";
 import templateCss from "./habituality.css";
+import { FIREARM_CALIBERS, getEnumTitle } from "src/utils/enums";
 
 initAuth();
 
@@ -119,6 +120,7 @@ const handlePrint = (req, res, id) => {
 
       // get all habituality events for current year
       let items = "";
+      let itemsProducts = "";
       let dbQueryEvents = db.collection(DB_COLLECTION_ASSOCIATE_EVENTS);
 
       const currentYear = new Date().getFullYear();
@@ -140,15 +142,28 @@ const handlePrint = (req, res, id) => {
         items += `
           <tr>
             <td class="center">ASSOCIAÇÃO GUNFIGHT TRAINING CENTER</td>
-            <td class="center">
+            <td class="center" style="text-align: center">
               ${getDateLocalized(new Date(event.createdDate),"dd/MM/yyyy")}
             </td>
-            <td class="center">TREINO</td>
-            <td class="center">
-              ${event.caliber}
-            </td>
+            <td class="center" style="text-align: center">TREINO</td>
           </tr>
         `;
+
+        if (event.products.length) {
+          for (let j=0,m=event.products.length; i<m; i+=1) {
+            const product = event.products[j];
+            itemsProducts += `
+              <tr>
+                <td class="center" style="text-align: center">${product.productTitle}</td>
+                <td class="center" style="text-align: center">${getEnumTitle(FIREARM_CALIBERS, product.caliber)}</td>
+                <td class="center" style="text-align: center">${product.quantity}</td>
+                <td class="center" style="text-align: center">${product.gunDetail}</td>
+              </tr>
+            `;
+          }
+
+          html = html.replace("{{itemsProducts}}", itemsProducts);
+        }
       }
 
       let stamp = "";

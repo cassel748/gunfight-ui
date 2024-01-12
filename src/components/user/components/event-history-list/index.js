@@ -1,34 +1,76 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { Icon } from "@iconify/react";
-import baselineRemoveRedEye from "@iconify/icons-ic/baseline-remove-red-eye";
 import {
+  CircularProgress,
   Grid,
   Table,
-  Tooltip,
-  TableRow,
+  TableBody,
   TableCell,
   TableHead,
-  TableBody,
-  IconButton,
+  TableRow
 } from "@material-ui/core";
-import { CircularProgress } from "@material-ui/core";
-import { format } from "date-fns";
+import { LoadingButton } from "@material-ui/lab";
+import { useRouter } from "next/router";
+import PropTypes from "prop-types";
+import { useState } from "react";
+import { printFile } from "src/utils/file";
 import { getDateLocalized } from "src/utils/localizedDateFns";
 
 const EventHistoryList = ({ eventHistory, isLoading }) => {
+  const router = useRouter();
+  const { id } = router.query;
+
+  const [isLoadingPrint, setIsLoadingPrint] = useState(false)
+
+  const onPrintHabituality = (index) => () => {
+    const allItemHasArmamentNumber = eventHistory[index]?.products?.filter((product) => {
+      return !product.armamentNumber || product.armamentNumber === "" || product.armamentNumber === null;
+    }).length === 0;
+
+    // caso todos produtos possuam gunDetail preenchidos, imprimir PDF
+    if (allItemHasArmamentNumber) {
+      printDeclaration()
+      return;
+    }
+
+    // Caso algum produto tenha o gunDetail faltando:
+    // Abrir a modal para preencher
+    // Modal deve conter a lista de produtos com um campo de gunDetail para cada produto
+    alert("Abrir modal")
+  };
+
+  const onEditGunDetail = (index) => () => {
+    // Abrir a modal para editar a lista de gunDetail dos produtos
+  };
+
+  async function printDeclaration(data = {}, method = "GET") {
+    try {
+      setIsLoadingPrint(true);
+      await printFile(
+        `/api/associate/declaration/habituality/${id}`,
+        data,
+        "pdf",
+        null,
+        method
+      );
+    } catch (e) {
+      console.log(e);
+    } finally {
+      setIsLoadingPrint(false);
+    }
+  };
+
   return (
     <Grid item xs={12}>
       <Table>
         <TableHead>
           <TableRow>
-            <TableCell width={"10%"} style={{ textAlign: "left" }}>
+            <TableCell width={"5%"} style={{ textAlign: "left" }}>
               #
             </TableCell>
-            <TableCell widht={"70%"} style={{ textAlign: "left" }}>
+            <TableCell width={"65%"} style={{ textAlign: "left" }}>
               Evento
             </TableCell>
-            <TableCell>Data / Hora</TableCell>
+            <TableCell width={"10%"}>Data / Hora</TableCell>
+            <TableCell width={"20%"}></TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -64,7 +106,12 @@ const EventHistoryList = ({ eventHistory, isLoading }) => {
           )}
 
           {!isLoading &&
-            eventHistory.map((event, index) => (
+            eventHistory.map((event, index) => {
+              const allItemHasArmamentNumber = eventHistory[index]?.products?.filter((product) => {
+                return !product.armamentNumber || product.armamentNumber === "" || product.armamentNumber === null;
+              }).length === 0;
+
+              return (
               <TableRow key={index}>
                 <TableCell style={{ textAlign: "left" }}>{index + 1}</TableCell>
                 <TableCell style={{ textAlign: "left" }}>
@@ -76,8 +123,35 @@ const EventHistoryList = ({ eventHistory, isLoading }) => {
                     "dd/MM/yyyy - hh:mm"
                   )}
                 </TableCell>
+                <TableCell style={{ maxWidth: "150px" }}>
+                  <div style={{ display: 'flex'}}>
+                    <LoadingButton
+                      fullWidth
+                      type="button"
+                      size="small"
+                      variant="text"
+                      onClick={onPrintHabituality(index)}
+                      loading={isLoadingPrint}
+                    >
+                      Imprimir
+                    </LoadingButton>
+                    {allItemHasArmamentNumber && (
+                      <LoadingButton
+                        fullWidth
+                        type="button"
+                        size="small"
+                        variant="contained"
+                        onClick={onEditGunDetail(index)}
+                        loading={isLoadingPrint}
+                      >
+                        Editar
+                      </LoadingButton>
+                    )}
+                  </div>
+                </TableCell>
               </TableRow>
-            ))}
+              )
+            })}
         </TableBody>
       </Table>
     </Grid>

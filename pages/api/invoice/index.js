@@ -1,6 +1,6 @@
 import { getFirebaseAdmin } from "next-firebase-auth";
 import initAuth, { verifyAuth } from "src/utils/auth";
-import { FINANCIAL_OPERATION_ENUM } from "src/utils/enums";
+import { FINANCIAL_OPERATION_ENUM, MUST_CONTAIN_CALIBER_NUMBER } from "src/utils/enums";
 import { addYears, getDateLocalized } from "src/utils/localizedDateFns";
 
 initAuth();
@@ -159,21 +159,17 @@ const handleFinish = async (res, body) => {
       }
     }
 
+    // Pega todos produtos da comanda que possam incluir municao
     let dbQueryItems = db
       .collection(DB_COLLECTION_ITEMS)
       .where("invoiceId", "==", body.docId)
-      .where("productType", "in", [16, 21, 20, 5, 25, 13, 2, 18, 17, 19]);
+      .where("productType", "in", MUST_CONTAIN_CALIBER_NUMBER)
+      .where("status", "!=", "D");
 
-    const responseItems = await dbQueryItems.get();
+    const invoiceItems = await dbQueryItems.get();
 
-    if (responseItems && responseItems.size) {
+    if (invoiceItems && invoiceItems.size) {
       let dbQueryEvents = db.collection(DB_COLLECTION_ASSOCIATE_EVENTS);
-
-      // aqui: filtrar responseItems que tiverem o productType === 2
-      // lista filtrada
-      // item.caliber(item.quantity) e gerar uma string com os calibres ex: "9mm(10), 12GA(5), .380(30)"
-      /// const calibers = "9mm(10), 12GA(5), .380(30)";
-      const calibers = "";
 
       const responseEvents = await dbQueryEvents
         .where("type", "==", 99)
@@ -183,17 +179,28 @@ const handleFinish = async (res, body) => {
 
       // If there is no 99(habituality) event, create a new one
       if (responseEvents && responseEvents.size === 0) {
-        await dbQueryEvents.add({
+        const products = [];
+
+        invoiceItems.forEach((item) => {
+          products.push({
+            itemId: item.id,
+            ...item.data(),
+          });
+        });
+
+        const event = {
           status: "A",
           name: "Habitualidade",
           type: 99,
           associateId: invoice.associateId,
-          caliber: calibers,
+          products,
           createdBy: body.finishedBy,
           createdAt: getDateLocalized(new Date(), "MM-dd-yyyy HH:mm:ss"),
           createdDate: getDateLocalized(new Date(), "MM-dd-yyyy"),
           createdDateTimestamp: new Date(),
-        });
+        };
+        console.log("event", event)
+        await dbQueryEvents.add(event);
       }
     }
 
