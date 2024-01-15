@@ -132,35 +132,41 @@ const UserList = ({ userList, onDelete, onFinishEdit, isLoading }) => {
               )}
 
               {!isLoading &&
-                userList.map((user, index) => (
-                  <TableRow key={index}>
-                    <TableCell>{user.name}</TableCell>
-                    <TableCell>{user.email}</TableCell>
-                    <TableCell>
-                      {USER_TYPE_DESCRIPTION[user.accessLevel]}
-                    </TableCell>
-                    <TableCell>
-                      <Label variant="filled" color={getTypeColor(user.active)}>
-                        {user.active ? "Ativo" : "Inativo"}
-                      </Label>
-                    </TableCell>
+                userList.map((user, index) => {
+                  if (user.name === "Validador") {
+                    return null;
+                  }
 
-                    <TableCell width={60}>
-                      <Tooltip title="Editar">
-                        <IconButton onClick={() => editItem(user)}>
-                          <Icon icon={baselineEdit} />
-                        </IconButton>
-                      </Tooltip>
-                    </TableCell>
-                    <TableCell align="center" width={60}>
-                      <Tooltip title="Excluir">
-                        <IconButton onClick={() => deleteItem(user)}>
-                          <Icon icon={baselineDelete} />
-                        </IconButton>
-                      </Tooltip>
-                    </TableCell>
-                  </TableRow>
-                ))}
+                  return (
+                    <TableRow key={index}>
+                      <TableCell>{user.name}</TableCell>
+                      <TableCell>{user.email}</TableCell>
+                      <TableCell>
+                        {USER_TYPE_DESCRIPTION[user.accessLevel]}
+                      </TableCell>
+                      <TableCell>
+                        <Label variant="filled" color={getTypeColor(user.active)}>
+                          {user.active ? "Ativo" : "Inativo"}
+                        </Label>
+                      </TableCell>
+
+                      <TableCell width={60}>
+                        <Tooltip title="Editar">
+                          <IconButton onClick={() => editItem(user)}>
+                            <Icon icon={baselineEdit} />
+                          </IconButton>
+                        </Tooltip>
+                      </TableCell>
+                      <TableCell align="center" width={60}>
+                        <Tooltip title="Excluir">
+                          <IconButton onClick={() => deleteItem(user)}>
+                            <Icon icon={baselineDelete} />
+                          </IconButton>
+                        </Tooltip>
+                      </TableCell>
+                    </TableRow>
+                  )
+                })}
             </TableBody>
           </Table>
         </TableContainer>
