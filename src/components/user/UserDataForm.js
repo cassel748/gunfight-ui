@@ -444,13 +444,13 @@ export default function UserDataForm({ currentUser }) {
   };
 
   async function printDeclaration(type, data = {}, method = "GET") {
-    if (type === 'habituality') {
+    /*if (type === 'habituality') {
       const currentPath = router.asPath;
       const newPath = `${currentPath.split("history?tab=3").join("")}/history?tab=3`;
 
       location.href = newPath;
       return;
-    }
+    }*/
 
     try {
       setIsLoadingPrint(true);
