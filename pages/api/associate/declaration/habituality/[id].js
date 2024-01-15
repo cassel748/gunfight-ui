@@ -149,7 +149,7 @@ const handlePrint = (req, res, id) => {
           </tr>
         `;
 
-        if (event.products.length) {
+        if (event?.products?.length) {
           for (let j=0,m=event.products.length; i<m; i+=1) {
             const product = event.products[j];
             itemsProducts += `
