@@ -16,7 +16,7 @@ import {
   Card,
   Grid,
 } from "@material-ui/core";
-import { USER_TYPE_DESCRIPTION, withAuthLevel } from "src/utils/auth";
+import { USER_TYPE, USER_TYPE_DESCRIPTION, withAuthLevel } from "src/utils/auth";
 import { AuthAction, useAuthUser, withAuthUser } from "next-firebase-auth";
 import { DialogAnimate } from "src/components/animate";
 import FormNewUser from "src/components/internal-operation/user/form-new-user";
@@ -172,7 +172,7 @@ function User() {
     }
   };
   
-  if (userInfo.accessLevel > 2) {
+  if (userInfo.accessLevel > USER_TYPE.ADMINISTRATOR) {
     return (
       <DashboardLayout>
         <Page title="Usuário">
