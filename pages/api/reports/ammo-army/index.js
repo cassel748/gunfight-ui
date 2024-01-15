@@ -135,8 +135,9 @@ const handlePrint = (req, res, query) => {
 
       html = html.replace("{{items}}", itemsTemplate);
 
-      const monthYear = getDateLocalized(new Date(), "MMMM/yyy");
+      const monthYear = getDateLocalized(query.initialDate, "MMMM/yyy");
       const localDate = getDateLocalized(new Date(), "dd 'de' MMMM 'de' yyy");
+
       html = html.replace("{{monthYear}}", monthYear.toUpperCase());
       html = html.replace("{{localDate}}", `Porto Alegre - RS, ${localDate}`);
       html = html.replace("{{totalQuantity}}", totalQuantity);

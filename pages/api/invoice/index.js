@@ -177,31 +177,37 @@ const handleFinish = async (res, body) => {
         .where("createdDate", "==", getDateLocalized(new Date(), "MM-dd-yyyy"))
         .get();
 
-      // If there is no 99(habituality) event, create a new one
-      if (responseEvents && responseEvents.size === 0) {
-        const products = [];
 
-        invoiceItems.forEach((item) => {
-          products.push({
-            itemId: item.id,
-            ...item.data(),
-          });
-        });
+      // Delete habituality to ensure reopen/finish will update habituality based on products
+      if (responseEvents && responseEvents.size > 0) {
+        const event = responseEvents.docs[0];
 
-        const event = {
-          status: "A",
-          name: "Habitualidade",
-          type: 99,
-          associateId: invoice.associateId,
-          products,
-          createdBy: body.finishedBy,
-          createdAt: getDateLocalized(new Date(), "MM-dd-yyyy HH:mm:ss"),
-          createdDate: getDateLocalized(new Date(), "MM-dd-yyyy"),
-          createdDateTimestamp: new Date(),
-        };
-        console.log("event", event)
-        await dbQueryEvents.add(event);
+        await db
+          .collection(DB_COLLECTION_ITEMS)
+          .doc(event.id)
+          .delete();
       }
+
+      const products = [];
+      invoiceItems.forEach((item) => {
+        products.push({
+          itemId: item.id,
+          ...item.data(),
+        });
+      });
+
+      const event = {
+        status: "A",
+        name: "Habitualidade",
+        type: 99,
+        associateId: invoice.associateId,
+        products,
+        createdBy: body.finishedBy,
+        createdAt: getDateLocalized(new Date(), "MM-dd-yyyy HH:mm:ss"),
+        createdDate: getDateLocalized(new Date(), "MM-dd-yyyy"),
+        createdDateTimestamp: new Date(),
+      };
+      await dbQueryEvents.add(event);
     }
 
     //CONTADOR AULAS PERSONAL

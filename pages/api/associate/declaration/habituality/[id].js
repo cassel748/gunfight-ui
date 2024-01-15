@@ -120,7 +120,6 @@ const handlePrint = (req, res, id) => {
 
       // get all habituality events for current year
       let items = "";
-      let itemsProducts = "";
       let dbQueryEvents = db.collection(DB_COLLECTION_ASSOCIATE_EVENTS);
 
       const currentYear = new Date().getFullYear();
@@ -139,31 +138,24 @@ const handlePrint = (req, res, id) => {
       for (let i = 0, n = eventsSize; i < n; i++) {
         const event = responseEvents.docs[i].data();
 
-        items += `
-          <tr>
-            <td class="center">ASSOCIAÇÃO GUNFIGHT TRAINING CENTER</td>
-            <td class="center" style="text-align: center">
-              ${getDateLocalized(new Date(event.createdDate),"dd/MM/yyyy")}
-            </td>
-            <td class="center" style="text-align: center">TREINO</td>
-          </tr>
-        `;
+        console.log(event?.products);
 
-        if (event?.products?.length) {
-          for (let j=0,m=event.products.length; i<m; i+=1) {
-            const product = event.products[j];
-            itemsProducts += `
-              <tr>
-                <td class="center" style="text-align: center">${product.productTitle}</td>
-                <td class="center" style="text-align: center">${getEnumTitle(FIREARM_CALIBERS, product.caliber)}</td>
-                <td class="center" style="text-align: center">${product.quantity}</td>
-                <td class="center" style="text-align: center">${product.gunDetail}</td>
-              </tr>
-            `;
-          }
+        for (let j = 0, m = event?.products?.length; j < m; j+=1) {
+          const product = event?.products[j];
 
-          html = html.replace("{{itemsProducts}}", itemsProducts);
-        }
+          items += `
+            <tr style="font-size: 10px;">
+              <td class="center" style="text-align: center;">
+                ${getDateLocalized(new Date(event.createdDate),"dd/MM/yyyy")}
+              </td>
+              <td class="center">ASSOCIAÇÃO GUNFIGHT TRAINING CENTER</td>
+              <td class="center" style="text-align: center;">${getEnumTitle(FIREARM_CALIBERS, product.caliber)}</td>
+              <td class="center" style="text-align: center;">${product.quantity}</td>
+              <td class="center" style="text-align: center;">${product.armamentNumber || "N/A"}</td>
+              <td class="center" style="text-align: center;">${product.habitualityType || "TREINAMENTO"}</td>
+            </tr>
+          `;
+        }  
       }
 
       let stamp = "";

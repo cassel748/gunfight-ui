@@ -135,7 +135,7 @@ a {
 }
 
 .container-table {
-  padding: 0 24px;
+  padding: 0;
   min-height: 100px;
 }
 
@@ -161,5 +161,5 @@ th, td {
 }
 
 .min-size {
-  min-width: 130px;
+  min-width: 50px;
 }
