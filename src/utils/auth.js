@@ -38,6 +38,16 @@ export const USER_TYPE_DESCRIPTION = {
   0: "Comum",
 };
 
+export const USER_TYPE_VALUE = [
+  { title: "Super", value: 99 },
+  { title: "Validador", value: 98 },
+  { title: "Administrador", value: 4 },
+  { title: "Gerencial", value: 3 },
+  { title: "Comercial", value: 2 },
+  { title: "Instrutor", value: 1 },
+  { title: "Comum", value: 0 },
+];
+
 const initAuth = () => {
   const COOKIE_SECURE = !!(
     process.env.COOKIE_SECURE === "true" || process.env.COOKIE_SECURE === true
