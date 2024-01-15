@@ -755,7 +755,7 @@ export default function UserDataForm({ currentUser }) {
                       label="CPF"
                       value={formik.values.cpf}
                       onChange={(event) => handleChangeCpf(event)}
-                      disabled={isEdit && userInfo.accessLevel <= 2}
+                      disabled={isEdit && userInfo.accessLevel <= USER_TYPE.ADMINISTRATOR}
                       error={Boolean(touched.cpf && errors.cpf)}
                       helperText={touched.cpf && errors.cpf}
                     />
@@ -925,7 +925,7 @@ export default function UserDataForm({ currentUser }) {
                       label="CPF"
                       value={formik.values.cpf}
                       onChange={(event) => handleChangeCpf(event)}
-                      disabled={isEdit && userInfo.accessLevel <= 2}
+                      disabled={isEdit && userInfo.accessLevel <= USER_TYPE.ADMINISTRATOR}
                       error={Boolean(touched.cpf && errors.cpf)}
                       helperText={touched.cpf && errors.cpf}
                     />

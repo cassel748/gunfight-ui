@@ -1,5 +1,5 @@
 import { getFirebaseAdmin } from "next-firebase-auth";
-import initAuth, { getUserSession, verifyAuth } from "src/utils/auth";
+import initAuth, { USER_TYPE, getUserSession, verifyAuth } from "src/utils/auth";
 import Firebase from "src/utils/firebase";
 import { initAlgolia, getAssociateDataIndex } from "src/utils/algolia";
 import { getDateLocalized } from "src/utils/localizedDateFns";
@@ -432,9 +432,9 @@ const handleUpdate = async (req, res, body) => {
       modifiedDate: getDateLocalized(new Date(), "MM-dd-yyyy hh:mm:ss"),
     };
 
-    // Only Super(99) and Admin(3) can update CPF
+    // Only Super(99), Validator(98) and Admin(4) can update CPF
     const userData = getUserSession();
-    if (userData && userData.accessLevel > 2) {
+    if (userData && userData.accessLevel > USER_TYPE.ADMINISTRATOR) {
       fieldsToUpdate.cpf = body.cpf;
     }
 

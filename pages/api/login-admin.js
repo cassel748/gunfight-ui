@@ -1,3 +1,4 @@
+import { USER_TYPE } from 'src/utils/auth';
 import { decryptData } from 'src/utils/crypto';
 import Firebase from 'src/utils/firebase'
 
@@ -9,7 +10,7 @@ const handler = async (req, res) => {
     const loginData = await Firebase.loginWithEmailAndPassword(body.email, decryptedPassword);
     const userData = await Firebase.getDataById("user-data", loginData.user.uid);
 
-    if (userData.status === "A" && userData.accessLevel >= 4) {
+    if (userData.status === "A" && userData.accessLevel >= USER_TYPE.ADMINISTRATOR) {
       return res.status(200).json({ success: true });
     }
 

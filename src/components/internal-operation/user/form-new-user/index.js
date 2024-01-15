@@ -24,7 +24,7 @@ import {
 import { useAuthUser } from "next-firebase-auth";
 import UploadAvatar from "src/components/UploadAvatar";
 import firebase from "firebase/app";
-import { USER_TYPE_VALUE, generateId } from "src/utils/auth";
+import { USER_TYPE, USER_TYPE_VALUE, generateId } from "src/utils/auth";
 import Firebase from "src/utils/firebase";
 import { useDispatch, useSelector } from "react-redux";
 import { setUser } from "src/features/user/userSlice";
@@ -235,7 +235,7 @@ const FormNewUser = ({ currentUser, onClose }) => {
                 {...getFieldProps("accessLevel")}
                 error={Boolean(touched.accessLevel && errors.accessLevel)}
                 helperText={touched.accessLevel && errors.accessLevel}
-                disabled={userInfo.accessLevel <= 2}
+                disabled={userInfo.accessLevel <= USER_TYPE.ADMINISTRATOR}
               >
                 {USER_TYPE_VALUE.map((option) => (
                   <MenuItem key={option.value} value={option.value}>

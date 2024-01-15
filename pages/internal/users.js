@@ -60,7 +60,7 @@ function User() {
   };
 
   const performSearch = async (values, page) => {
-    if (userInfo.accessLevel < 2) {
+    if (userInfo.accessLevel < USER_TYPE.ADMINISTRATOR) {
       return;
     }
 

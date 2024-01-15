@@ -1,6 +1,6 @@
 import { getFirebaseAdmin } from "next-firebase-auth";
 import { getUsersIndex, initAlgolia } from "src/utils/algolia";
-import initAuth, { verifyAuth } from "src/utils/auth";
+import initAuth, { USER_TYPE, verifyAuth } from "src/utils/auth";
 import Firebase from "src/utils/firebase";
 import { getDateLocalized } from "src/utils/localizedDateFns";
 
@@ -202,26 +202,31 @@ const handleUpdate = async (res, body) => {
       });
     }
 
+    const data = {
+      name: body.name,
+      phoneNumber: body.phoneNumber,
+      modifiedBy: body.modifiedBy,
+      userPhoto: body.userPhoto,
+      userPhotoStorageId: body.userPhotoStorageId,
+      modifiedAt: getDateLocalized(new Date(), "MM-dd-yyyy HH:mm:ss"),
+      modifiedDate: getDateLocalized(new Date(), "MM-dd-yyyy"),
+      active: !!body.active,
+    }
+
+    // Only administrator can change user type
+    if (user.accessLevel >= USER_TYPE.ADMINISTRATOR) {
+      data.accessLevel =  body.accessLevel;
+    }
+
     await db
       .collection(DB_COLLECTION)
       .doc(id)
-      .update({
-        name: body.name,
-        accessLevel: body.accessLevel,
-        phoneNumber: body.phoneNumber,
-        modifiedBy: body.modifiedBy,
-        userPhoto: body.userPhoto,
-        userPhotoStorageId: body.userPhotoStorageId,
-        modifiedAt: getDateLocalized(new Date(), "MM-dd-yyyy HH:mm:ss"),
-        modifiedDate: getDateLocalized(new Date(), "MM-dd-yyyy"),
-        active: !!body.active,
-      });
+      .update(data);
 
     try {
       // Algolia should have objectID to allow update
-      await getUsersIndex().partialUpdateObject({
+      const algoliaData = {
         name: body.name,
-        accessLevel: body.accessLevel,
         phoneNumber: body.phoneNumber,
         modifiedBy: body.modifiedBy,
         userPhoto: body.userPhoto,
@@ -230,7 +235,14 @@ const handleUpdate = async (res, body) => {
         modifiedDate: getDateLocalized(new Date(), "MM-dd-yyyy"),
         active: !!body.active,
         objectID: id
-      }, { createIfNotExists: true });
+      };
+
+      // Only administrator can change user type
+      if (user.accessLevel >= USER_TYPE.ADMINISTRATOR) {
+        algoliaData.accessLevel =  body.accessLevel;
+      }
+
+      await getUsersIndex().partialUpdateObject(algoliaData, { createIfNotExists: true });
     } catch(e) {
       console.log(e);
     }
