@@ -32,7 +32,7 @@ export const USER_TYPE_DESCRIPTION = {
   99: "Super",
   98: "Validador",
   4: "Administrador",
-  3: "Marketing",
+  3: "Gerencial",
   2: "Comercial",
   1: "Instrutor",
   0: "Comum",
