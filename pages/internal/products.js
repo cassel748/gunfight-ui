@@ -6,7 +6,7 @@ import { useSelector } from "react-redux";
 import { Print } from "@material-ui/icons";
 import { printFile } from "src/utils/file";
 import Confirm from "src/components/Confirm";
-import { withAuthLevel } from "src/utils/auth";
+import { USER_TYPE, withAuthLevel } from "src/utils/auth";
 import { LoadingButton } from "@material-ui/lab";
 import DashboardLayout from "src/layouts/dashboard";
 import { DialogAnimate } from "src/components/animate";
