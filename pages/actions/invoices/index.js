@@ -268,7 +268,7 @@ function Commands() {
               </TabsWrapper>
             </Stack>
             <Card sx={{ minHeight: 800 }}>
-              {userInfo?.accessLevel === USER_TYPE.SUPER && (
+              {userInfo?.accessLevel >= USER_TYPE.MANAGER && (
                 <Stack
                   direction="row"
                   divider={
