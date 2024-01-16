@@ -136,14 +136,14 @@ const ListProducts = ({ products, deleteItem, editItem, isLoading }) => {
 
                   <TableCell>
                     <Tooltip title="Editar">
-                      <RestrictedButton onClick={() => editItem(product)} requiredAccessLevel={USER_TYPE.ADMINISTRATOR} icon>
+                      <RestrictedButton onClick={() => editItem(product)} requiredAccessLevel={USER_TYPE.SUPER} icon>
                         <Icon icon={baselineEdit} />
                       </RestrictedButton>
                     </Tooltip>
                   </TableCell>
                   <TableCell align="center">
                     <Tooltip title="Excluir">
-                      <RestrictedButton onClick={() => deleteItem(product)} requiredAccessLevel={USER_TYPE.ADMINISTRATOR} icon>
+                      <RestrictedButton onClick={() => deleteItem(product)} requiredAccessLevel={USER_TYPE.SUPER} icon>
                         <Icon icon={baselineDelete} />
                       </RestrictedButton>
                     </Tooltip>
