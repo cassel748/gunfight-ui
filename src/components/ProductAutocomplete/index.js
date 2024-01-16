@@ -125,7 +125,7 @@ const ProductAutocomplete = ({
 
   return (
     <Autocomplete
-      open={open && options.length}
+      open={open}
       multiple={multiple}
       getOptionDisabled={(option) => option.value === "disabled"}
       getOptionSelected={(option, value) =>
@@ -158,7 +158,7 @@ const ProductAutocomplete = ({
               setOptions([]);
             }, 150);
           }}
-          onFocus={() => setOpen(true)}
+          onFocus={() => setOpen(options.length > 0)}
           InputProps={{
             ...params.InputProps,
             endAdornment: (
