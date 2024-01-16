@@ -24,6 +24,8 @@ import {
   IconButton,
   TableContainer,
 } from "@material-ui/core";
+import { RestrictedButton } from "src/components/RestrictedButton";
+import { USER_TYPE } from "src/utils/auth";
 
 const ListProducts = ({ products, deleteItem, editItem, isLoading }) => {
   return (
@@ -134,16 +136,16 @@ const ListProducts = ({ products, deleteItem, editItem, isLoading }) => {
 
                   <TableCell>
                     <Tooltip title="Editar">
-                      <IconButton onClick={() => editItem(product)}>
+                      <RestrictedButton onClick={() => editItem(product)} requiredAccessLevel={USER_TYPE.ADMINISTRATOR} icon>
                         <Icon icon={baselineEdit} />
-                      </IconButton>
+                      </RestrictedButton>
                     </Tooltip>
                   </TableCell>
                   <TableCell align="center">
                     <Tooltip title="Excluir">
-                      <IconButton onClick={() => deleteItem(product)}>
+                      <RestrictedButton onClick={() => deleteItem(product)} requiredAccessLevel={USER_TYPE.ADMINISTRATOR} icon>
                         <Icon icon={baselineDelete} />
-                      </IconButton>
+                      </RestrictedButton>
                     </Tooltip>
                   </TableCell>
                 </TableRow>
