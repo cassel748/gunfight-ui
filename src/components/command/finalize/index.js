@@ -20,18 +20,22 @@ import { useAuthUser } from "next-firebase-auth";
 import Toast from "src/utils/toast";
 import { useSelector } from "react-redux";
 import {
+  EVENT_TYPE,
   FINANCIAL_OPERATION_ENUM,
   getPaymentFormIcon,
+  MUST_CONTAIN_CALIBER_NUMBER,
   PAYMENT_METHODS,
 } from "src/utils/enums";
 
-const CommandFinalize = ({ invoiceData, associateData, handleClose }) => {
+const CommandFinalize = ({ invoiceData, associateData, handleClose, invoiceItems }) => {
   const AuthUser = useAuthUser();
   const userInfo = useSelector((state) => state.user.userInfo);
   const UserAddressSchema = Yup.object().shape({
     paymentForm: Yup.string().required("Forma de pagamento"),
     observation: Yup.string(),
   });
+
+  const filteredProducts = invoiceItems.filter(item => MUST_CONTAIN_CALIBER_NUMBER.includes(item.productType));
 
   // console.log("invoiceData: ", invoiceData)
   // console.log("associateData: ", associateData)
@@ -168,6 +172,37 @@ const CommandFinalize = ({ invoiceData, associateData, handleClose }) => {
                   </Box>
                 </Grid>
               </Grid>
+
+              {/** INCLUIR AQUI DADOS DOS PRODUTOS */}
+
+              {filteredProducts.length > 0 && (
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Produto</th>
+                      <th>SIGMA</th>
+                      <th>Tipo Evento</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {filteredProducts.map(product => (
+                      <tr>
+                        <td>{product.productTitle}</td>
+
+                        <td><input></input></td>
+
+                        <td>
+                          <select>
+                            {EVENT_TYPE.map(item => (
+                              <option value={item.value}>{item.title}</option>  
+                            ))}
+                          </select>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>  
+              )}
 
               <Grid container spacing={3}>
                 <Grid item sm={12} xs={12} mt={2}>

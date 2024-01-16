@@ -565,3 +565,13 @@ export const MUST_CONTAIN_CALIBER_STRING = [
 export const MUST_CONTAIN_CALIBER_NUMBER = [
   16, 2, 18, 17
 ];
+
+
+export const EVENT_TYPE = [
+  { title: "Treinamento", value: 1 },
+  { title: "Campeonato Estadual", value: 2 },
+  { title: "Campeonato Distrital", value: 3 },
+  { title: "Campeonato Regional", value: 4 },
+  { title: "Campeonato Nacional", value: 5 },
+  { title: "Campeonato Internacional", value: 6 },
+]

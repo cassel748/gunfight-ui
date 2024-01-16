@@ -915,6 +915,7 @@ const CommandInvoice = () => {
                 widthMax={600}
                 invoiceData={invoiceData}
                 associateData={associateData}
+                invoiceItems={invoiceItems}
               />
             </DialogAnimate>
           </Card>

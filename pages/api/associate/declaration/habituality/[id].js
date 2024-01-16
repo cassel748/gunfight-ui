@@ -138,8 +138,6 @@ const handlePrint = (req, res, id) => {
       for (let i = 0, n = eventsSize; i < n; i++) {
         const event = responseEvents.docs[i].data();
 
-        console.log(event?.products);
-
         for (let j = 0, m = event?.products?.length; j < m; j+=1) {
           const product = event?.products[j];
 
