@@ -709,7 +709,7 @@ const CommandInvoice = () => {
               </Grid>
               {invoiceData && invoiceData.status === 2 ? (
                 <Grid item>
-                  <LoadingButton
+                  <RestrictedButton
                     fullWidth
                     size="large"
                     type="button"
@@ -717,9 +717,10 @@ const CommandInvoice = () => {
                     variant="outlined"
                     onClick={updateInvoice({ status: 1 })}
                     style={{ marginRight: 12 }}
+                    requiredAccessLevel={USER_TYPE.MANAGER}
                   >
                     Reabrir
-                  </LoadingButton>
+                  </RestrictedButton>
                 </Grid>
               ) : null}
 
@@ -732,7 +733,7 @@ const CommandInvoice = () => {
                     size="large"
                     type="button"
                     loading={isLoadingReopen}
-                    requiredAccessLevel={USER_TYPE.ADMINISTRATOR}
+                    requiredAccessLevel={USER_TYPE.MANAGER}
                     onClick={onReopenInvoice}
                     style={{ marginLeft: 12 }}
                     variant="outlined"

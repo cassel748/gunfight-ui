@@ -25,6 +25,7 @@ import {
   Pagination,
   Typography,
 } from "@material-ui/core";
+import { RestrictedButton } from "src/components/RestrictedButton";
 
 // ----------------------------------------------------------------------
 
@@ -264,15 +265,16 @@ const Products = () => {
                   </span>
                 </MenuItem> */}
               </Menu>
-              <LoadingButton
+              <RestrictedButton
                 type="button"
                 size="medium"
                 variant="contained"
                 startIcon={<Add />}
                 onClick={handleOpenEdit}
+                requiredAccessLevel={USER_TYPE.SUPER}
               >
                 Novo
-              </LoadingButton>
+              </RestrictedButton>
             </div>
           </Stack>
 
