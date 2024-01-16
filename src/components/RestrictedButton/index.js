@@ -1,4 +1,4 @@
-import { USER_TYPE, getUserSession } from "src/utils/auth";
+import { USER_TYPE_VALUE } from "src/utils/auth";
 import { DialogAnimate } from "../animate";
 import { Card, Box, Typography, Stack, TextField, InputAdornment, IconButton } from "@material-ui/core";
 import * as Yup from "yup";
@@ -108,7 +108,7 @@ export function RestrictedButton({
                 Login Administrador
               </Typography>
               <Typography paragraph>
-                Essa ação requer o login de um {getEnumTitle(USER_TYPE, requiredAccessLevel)}
+                Essa ação requer o login de um {getEnumTitle(USER_TYPE_VALUE, requiredAccessLevel)}
               </Typography>
             </Box>
           </Box>
