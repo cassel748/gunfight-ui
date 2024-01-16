@@ -35,7 +35,7 @@ const CommandFinalize = ({ invoiceData, associateData, handleClose, invoiceItems
     observation: Yup.string(),
   });
 
-  const filteredProducts = invoiceItems.filter(item => MUST_CONTAIN_CALIBER_NUMBER.includes(item.productType));
+  const filteredProducts = []//invoiceItems.filter(item => MUST_CONTAIN_CALIBER_NUMBER.includes(item.productType));
 
   const formik = useFormik({
     initialValues: {
