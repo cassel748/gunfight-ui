@@ -1,4 +1,4 @@
-import { getUserSession } from "src/utils/auth";
+import { USER_TYPE_VALUE } from "src/utils/auth";
 import { DialogAnimate } from "../animate";
 import { Card, Box, Typography, Stack, TextField, InputAdornment, IconButton } from "@material-ui/core";
 import * as Yup from "yup";
@@ -12,6 +12,7 @@ import Toast from "src/utils/toast";
 import { encryptData } from 'src/utils/crypto';
 import { apiFetch } from "src/utils/apiFetch";
 import { useSelector } from "react-redux";
+import { getEnumTitle } from "src/utils/enums";
 
 export function RestrictedButton({
   requiredAccessLevel,
@@ -107,7 +108,7 @@ export function RestrictedButton({
                 Login Administrador
               </Typography>
               <Typography paragraph>
-                Essa ação requer o login de um administrador
+                Essa ação requer o login de um {getEnumTitle(USER_TYPE_VALUE, requiredAccessLevel)}
               </Typography>
             </Box>
           </Box>

@@ -77,7 +77,7 @@ const CommandInvoiceList = ({
               commandStatus === 3 ? null : (
                 <>
                   <TableCell width={"7%"} />
-                  {userInfo?.accessLevel === USER_TYPE.SUPER && <TableCell width={"7%"} />}
+                  {userInfo?.accessLevel === USER_TYPE.MANAGER && <TableCell width={"7%"} />}
                 </>
               )}
             </TableRow>
@@ -223,16 +223,17 @@ const CommandInvoiceList = ({
                       <>
                         {!consumables.fromInventory ? (
                           <TableCell>
-                            <LoadingButton
+                            <RestrictedButton
                               fullWidth
                               type="button"
                               size="small"
                               loading={false}
                               variant="text"
                               onClick={() => editItem(consumables)}
+                              requiredAccessLevel={USER_TYPE.MANAGER}
                             >
                               Editar
-                            </LoadingButton>
+                            </RestrictedButton>
                           </TableCell>
                         ) : (
                           <TableCell />
@@ -245,7 +246,7 @@ const CommandInvoiceList = ({
                             size="small"
                             variant="text"
                             loading={false}
-                            requiredAccessLevel={USER_TYPE.ADMINISTRATOR}
+                            requiredAccessLevel={USER_TYPE.MANAGER}
                             onClick={() => removeCommandItem(consumables)}
                           >
                             Remover
