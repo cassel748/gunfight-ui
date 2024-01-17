@@ -184,7 +184,7 @@ const CommandFinalize = ({ invoiceData, associateData, handleClose, invoiceItems
                       <tr>
                         <td>{product.productTitle}</td>
 
-                        <td><TextField></TextField></td>
+                        <td><TextField> </TextField></td>
 
                         <td>
                           <select>
